@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import PizzaDiscountProgram.Pizza
 import PizzaDiscountProgram.OrderItem
-import org.junit.jupiter.api.Order
 
 class PizzaDiscountProgramTest {
     @Test

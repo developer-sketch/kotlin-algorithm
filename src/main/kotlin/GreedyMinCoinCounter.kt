@@ -1,5 +1,3 @@
-import java.util.Stack
-
 class GreedyMinCoinCounter {
     fun count(n:Int, k:Int, coins:IntArray) :Int {
         var remain = k

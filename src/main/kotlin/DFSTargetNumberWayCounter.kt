@@ -14,7 +14,7 @@ class DFSTargetNumberWayCounter {
     private fun calculate(result: Int, targetNumber: Int, array: IntArray, index:Int) {
         if (array.size == index) {
             if (result == targetNumber) cnt++
-            return;
+            return
         }
 
         calculate(result + array[index], targetNumber, array, index + 1)
@@ -27,7 +27,7 @@ class DFSTargetNumberWayCounter {
         println(result)
         if (array.size == index) {
             if (result == targetNumber) cnt++
-            return;
+            return
         }
 
         calculateForDebug(result + array[index], targetNumber, array, index + 1, "$result + ${array[index]}")

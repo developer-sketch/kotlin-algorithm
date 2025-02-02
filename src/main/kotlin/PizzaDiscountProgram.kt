@@ -22,7 +22,7 @@ class PizzaDiscountProgram() {
         }
 
         val everyDiscountResult = IntArray(4)
-        everyDiscountResult[0] = buy1LargeGet1Medium(orderItems, priceMap)
+        everyDiscountResult[0] = buy1LargeGet1Medium(orderItems)
         val priceList = priceList(orderItems)
         everyDiscountResult[1] = buy3Get1Free(priceList)
         everyDiscountResult[2] = buy5Get100Dollars(priceList)
@@ -30,7 +30,7 @@ class PizzaDiscountProgram() {
         return everyDiscountResult.filter { it != 0 }.minOrNull() ?: getTotal(priceMap, orderItems)
     }
 
-    private fun buy1LargeGet1Medium (orderItems :Array<OrderItem>, priceMap :HashMap<String, Int>) :Int {
+    private fun buy1LargeGet1Medium (orderItems :Array<OrderItem>) :Int {
         var sum = 0
         val largePizzasQuantity = HashMap<String, Int>()
 
@@ -61,7 +61,7 @@ class PizzaDiscountProgram() {
 
     private fun buy3Get1Free(priceList: List<Int>) :Int {
         var total = 0
-        var freeCount :Int = priceList.size / 3
+        val freeCount :Int = priceList.size / 3
         for (price in priceList.subList(freeCount, priceList.size)) {
             total += price
         }
@@ -70,7 +70,7 @@ class PizzaDiscountProgram() {
 
     private fun buy5Get100Dollars(priceList: List<Int>) :Int {
         var total = 0
-        var freeCount :Int = priceList.size / 5
+        val freeCount :Int = priceList.size / 5
         for (i in priceList.indices) {
             if ((i+1) > freeCount * 5) total += priceList[i]
             else if ((i+1) % 5 == 0) total += 100
