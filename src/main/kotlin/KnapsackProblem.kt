@@ -1,22 +1,13 @@
 class KnapsackProblem() {
-    class Good (var weight: Int, var price: Int) :Comparable<Good> {
-        override fun compareTo(other: Good) :Int {
-            if (this.price > other.price) return 1
-            else if (this.price < other.price) return 0
-            else
-                return if (this.weight <= other.weight) 1
-                        else 0
-        }
-    }
+    class Good (var weight: Int, var price: Int)
+
     fun solution(n :Int, w :Int, goods: Array<Good>) :Int {
-        goods.sort()
-        var total = 0
-        var weights = 0
+        val dp = IntArray(w + 1)
         for (good in goods) {
-            total += good.price
-            weights += good.weight
-            if (weights >= w) break
+            for (weight in w downTo good.weight) {
+                dp[weight] = maxOf(dp[weight], dp[weight - good.weight] + good.price)
+            }
         }
-        return total
+        return dp[w]
     }
 }
