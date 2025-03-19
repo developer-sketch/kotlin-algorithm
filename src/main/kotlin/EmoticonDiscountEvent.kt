@@ -1,5 +1,4 @@
-import com.sun.jmx.remote.internal.ArrayQueue
-import java.util.*
+//https://school.programmers.co.kr/learn/courses/30/lessons/150368
 
 class EmoticonDiscountEvent {
     private val discountList = intArrayOf(10, 20, 30, 40)
