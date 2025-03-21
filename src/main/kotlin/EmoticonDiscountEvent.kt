@@ -26,8 +26,10 @@ class EmoticonDiscountEvent {
                 if (paid >= user[1]) membershipCount++
                 else totalPrice += paid
             }
-            if (membershipCount > result[0]
-                || membershipCount == result[0] && totalPrice > result[1]) {
+
+            var (maxMembershipCount, maxTotalPrice) = result
+            if (membershipCount > maxMembershipCount
+                || membershipCount == maxMembershipCount && totalPrice > maxTotalPrice) {
                 result[0] = membershipCount
                 result[1] = totalPrice
             }
