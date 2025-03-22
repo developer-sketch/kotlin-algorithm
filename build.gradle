@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.0'
 }
 
 group = 'ai.image.game'
@@ -11,8 +11,20 @@ repositories {
 
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
 
 test {
     useJUnitPlatform()
 }
+
+sourceSets {
+    main {
+        kotlin.srcDirs = ['src/main/kotlin']
+    }
+    test {
+        kotlin.srcDirs = ['src/test/kotlin']
+    }
+}
+
+
